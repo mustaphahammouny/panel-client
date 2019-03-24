@@ -1,0 +1,35 @@
+<div class="col-8 mx-auto my-4">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Log in</h4>
+      <hr>
+      <form #form="ngForm" autocomplete="off">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" required id="email" name="email"
+              #email="ngModel" [(ngModel)]="credential.email" class="form-control" 
+              [ngClass]="{'is-invalid': email.invalid && email.touched}">
+          <div *ngIf="email.invalid && email.touched" class="invalid-feedback">
+            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.email">Email is not valid</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" required minlength="6" id="password" name="password"
+              #password="ngModel" [(ngModel)]="credential.password" class="form-control"
+              [ngClass]="{'is-invalid': password.invalid && password.touched}">
+          <div *ngIf="password.invalid && password.touched" class="invalid-feedback">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">Password should be at least {{ password.errors.minlength.requiredLength }} caracters</div>
+            <div *ngIf="password.errors.pattern">Password is not valid</div>
+          </div>
+        </div>
+        <p class="text-center">You don't have an account <a routerLink="/register">Register now</a></p>
+        <button type="button" class="btn btn-block btn-primary" [disabled]="form.invalid" (click)="loginWithEmailAndPassword()"><i class="fa fa-lock"></i> Log in</button>
+        <button (click)="loginWithGoogle()" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Login with <b>Google</b></button>
+
+      </form>
+    </div>
+  </div>
+</div>
