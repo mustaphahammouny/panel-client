@@ -18,8 +18,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { environment } from 'src/environments/environment';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { ListUsersComponent } from './components/list-users/list-users.component';
-import { UsersComponent } from './components/users/users.component';
+import { ListUserComponent } from './components/list-user/list-user.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +32,8 @@ import { UsersComponent } from './components/users/users.component';
     RegisterComponent,
     PageNotFoundComponent,
     NavBarComponent,
-    ListUsersComponent,
-    UsersComponent
+    ListUserComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

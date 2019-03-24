@@ -8,6 +8,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ListUserComponent } from './components/list-user/list-user.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/clients', pathMatch: 'full'},
@@ -15,6 +17,10 @@ const routes: Routes = [
   {path: 'clients/add', component: AddClientComponent, canActivate: [AuthGuard]},
   {path: 'clients/edit/:id', component: EditClientComponent, canActivate: [AuthGuard]},
   {path: 'clients/show/:id', component: ShowClientComponent, canActivate: [AuthGuard]},
+
+  {path: 'users', component: ListUserComponent, canActivate: [AuthGuard]},
+  {path: 'users/add', component: AddUserComponent, canActivate: [AuthGuard]},
+
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: '**', component: PageNotFoundComponent}
